@@ -60,7 +60,18 @@ var menuLinks = [
 
 function handleClick(e) {
     e.preventDefault();
-    console.log(e)
+    //let clickedLink= null
+    //console.log(e.target)
+    clickedLink = e.target
+
+    clickedLink.classList.toggle("active");
+    const otherLinks = document.querySelectorAll("a");
+    otherLinks.forEach((link) => {
+        console.log(link)
+        if (link !== clickedLink) {
+          link.classList.remove("active");
+        }
+      });
 
 }
 
