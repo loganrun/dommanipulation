@@ -8,20 +8,6 @@ topMenuEL.style.height = "100%"
 topMenuEL.style.backgroundColor = "var(--top-menu-bg)";
 topMenuEL.classList.add("flex-around")
 
-// var menuLinks = [
-//   { text: "about", href: "/about" },
-//   { text: "catalog", href: "/catalog" },
-//   { text: "orders", href: "/orders" },
-//   { text: "account", href: "/account" },
-// ];
-
-// menuLinks.forEach((i) => {
-//       const link = document.createElement("a");
-//       link.innerText = i.text;
-//       link.href = `${i.href}`;
-//       topMenuEL.appendChild(link);
-//     });
-
 //Part 3
 let subMenuEl = document.getElementById('sub-menu')
 subMenuEl.style.height = "100%"
@@ -66,28 +52,53 @@ for (let i of menuLinks) {
     const link = document.createElement("a");
     link.innerText = i.text;
     link.href = `${i.href}`;
+    link.id = i.text
     link.addEventListener('click', handleClick);
     topMenuEL.appendChild(link);
+    //console.log(i.subLinks)
 
-    subLinks = menuLinks
+    // subLinks = menuLinks
 
-    // if (i.subLinks) {
+    if (i.subLinks) {
 
-    //     for(let x=0; x<=i.subLinks.length; x++){
-    //         console.log(i.subLinks[x].text)
+        //  for(let slink of i.subLinks ){
+        //     console.log(i.subLinks[0])
 
-    //     }
-    // }
+        // }
+        for(let x=0; x<= i.subLinks.length; x++)
+        if(i.subLinks[x]){
+            console.log(i.subLinks[x])
+        // const link = document.createElement("a");
+        // link.innerText = i.subLinks[x].text;
+        // link.href = `${i.subLinks[x].href}`;
+        // link.addEventListener('click', closeClick);
+        // subMenuEl.appendChild(link);
+        
+
+        }
+        
+        //break
+    }
+}
+
+function closeClick(e){
+    e.preventDefault()
+    subMenuEl.style.top = "0";
 }
 
 function handleClick(e) {
     e.preventDefault();
-    //console.log(e.target)
+    //console.log(e)
     clickedLink = e.target
-    console.log(clickedLink)
+    console.log(clickedLink.id)
     clickedLink.classList.add("active");
+    subMenuEl.style.height = "100%";
 
-    console.log(subLinks.text)
+   // console.log(subLinks.text)
+
+   if(clickedLink == "about"){
+    console.log("about")
+   }
 
 
 
