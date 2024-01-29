@@ -58,19 +58,26 @@ var menuLinks = [
     },
 ];
 
+function handleClick(e) {
+    e.preventDefault();
+    console.log(e)
+
+}
+
 for (let i of menuLinks) {
     const link = document.createElement("a");
     link.innerText = i.text;
     link.href = `${i.href}`;
+    link.addEventListener('click', handleClick);
     topMenuEL.appendChild(link);
 
-    if (i.subLinks) {
-        
-        for(let x=0; x<3; x++){
-            console.log(i.subLinks[x])
+    // if (i.subLinks) {
 
-        }
-    }
+    //     for(let x=0; x<3; x++){
+    //         console.log(i.subLinks[x])
+
+    //     }
+    // }
 
 
 }
