@@ -14,7 +14,7 @@ subMenuEl.style.height = "100%"
 subMenuEl.style.backgroundColor = "var(--sub-menu-bg)";
 subMenuEl.classList.add('flex-around');
 subMenuEl.style.position = "absolute";
-//subMenuEl.style.top = "0";
+subMenuEl.style.top = "0";
 
 //Part 4
 
@@ -44,7 +44,7 @@ var menuLinks = [
     },
 ];
 
-let subLinks = null
+let intLinks = []
 
 
 
@@ -65,17 +65,13 @@ for (let i of menuLinks) {
         //     console.log(i.subLinks[0])
 
         // }
-        for(let x=0; x<= i.subLinks.length; x++)
-        if(i.subLinks[x]){
-            console.log(i.subLinks[x])
-        // const link = document.createElement("a");
-        // link.innerText = i.subLinks[x].text;
-        // link.href = `${i.subLinks[x].href}`;
-        // link.addEventListener('click', closeClick);
-        // subMenuEl.appendChild(link);
+        // for(let x=0; x<= i.subLinks.length; x++)
+        // if(i.subLinks[x]){
+        //     console.log(i.subLinks[x])
+        
         
 
-        }
+        // }
         
         //break
     }
@@ -90,20 +86,42 @@ function handleClick(e) {
     e.preventDefault();
     //console.log(e)
     clickedLink = e.target
-    console.log(clickedLink.id)
+    //console.log(clickedLink.id)
     clickedLink.classList.add("active");
     subMenuEl.style.height = "100%";
 
    // console.log(subLinks.text)
 
-   if(clickedLink == "about"){
-    console.log("about")
+   if(clickedLink.id == "about"){
+    mainEL.innerHTML = '<h1>ABOUT</h1>';
+    mainEL.classList.add("flex-ctr")
    }
 
+   if(clickedLink.id == "catalog"){
+    // const link = document.createElement("a");
+        // link.innerText = i.subLinks[x].text;
+        // link.href = `${i.subLinks[x].href}`;
+        // link.addEventListener('click', closeClick);
+        // subMenuEl.appendChild(link);
 
+   }
+   if(clickedLink.id == "orders"){
+    // const link = document.createElement("a");
+        // link.innerText = i.subLinks[x].text;
+        // link.href = `${i.subLinks[x].href}`;
+        // link.addEventListener('click', closeClick);
+        // subMenuEl.appendChild(link);
+    
+   }
 
-
-
+   if(clickedLink.id == "account"){
+    // const link = document.createElement("a");
+        // link.innerText = i.subLinks[x].text;
+        // link.href = `${i.subLinks[x].href}`;
+        // link.addEventListener('click', closeClick);
+        // subMenuEl.appendChild(link);
+    
+   }
 
     const otherLinks = document.querySelectorAll("a");
     otherLinks.forEach((link) => {
