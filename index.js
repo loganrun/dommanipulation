@@ -28,7 +28,7 @@ subMenuEl.style.height = "100%"
 subMenuEl.style.backgroundColor = "var(--sub-menu-bg)";
 subMenuEl.classList.add('flex-around');
 subMenuEl.style.position = "absolute";
-subMenuEl.style.top = "0";
+//subMenuEl.style.top = "0";
 
 //Part 4
 
@@ -58,22 +58,9 @@ var menuLinks = [
     },
 ];
 
-function handleClick(e) {
-    e.preventDefault();
-    //let clickedLink= null
-    //console.log(e.target)
-    clickedLink = e.target
+let subLinks = null
 
-    clickedLink.classList.toggle("active");
-    const otherLinks = document.querySelectorAll("a");
-    otherLinks.forEach((link) => {
-        console.log(link)
-        if (link !== clickedLink) {
-          link.classList.remove("active");
-        }
-      });
 
-}
 
 for (let i of menuLinks) {
     const link = document.createElement("a");
@@ -82,16 +69,41 @@ for (let i of menuLinks) {
     link.addEventListener('click', handleClick);
     topMenuEL.appendChild(link);
 
+    subLinks = menuLinks
+
     // if (i.subLinks) {
 
-    //     for(let x=0; x<3; x++){
-    //         console.log(i.subLinks[x])
+    //     for(let x=0; x<=i.subLinks.length; x++){
+    //         console.log(i.subLinks[x].text)
 
     //     }
     // }
-
-
 }
+
+function handleClick(e) {
+    e.preventDefault();
+    //console.log(e.target)
+    clickedLink = e.target
+    console.log(clickedLink)
+    clickedLink.classList.add("active");
+
+    console.log(subLinks.text)
+
+
+
+
+
+
+    const otherLinks = document.querySelectorAll("a");
+    otherLinks.forEach((link) => {
+        //console.log(link)
+        if (link !== clickedLink) {
+          link.classList.remove("active");
+        }
+      });
+}
+
+ //console.log(subLinks)
 
 
 
